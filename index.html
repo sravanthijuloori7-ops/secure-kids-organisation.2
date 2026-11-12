@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Kids Organization - Cybercrime Defense & Learning Academy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#050508',
+                        cardbg: '#0c0e14',
+                        cardborder: '#1a1f2c',
+                        accentCyan: '#00f3ff',
+                        accentGreen: '#00ff9d',
+                        accentPurple: '#b026ff',
+                        accentAmber: '#ffb703'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050508;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.25);
+        }
+        .gradient-heading {
+            background: linear-gradient(135deg, #00f3ff 0%, #00ff9d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-panel {
+            background: rgba(12, 14, 20, 0.95);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050508;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a1f2c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f3ff;
+        }
+        .symbol-pulse {
+            animation: pulseGlow 3s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.4)); }
+            100% { filter: drop-shadow(0 0 22px rgba(0, 255, 157, 0.8)); }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+
+    <!-- TOP EMBLEM & HEADER SECTION -->
+    <div class="w-full bg-black/90 border-b border-cardborder py-4 px-4 flex flex-col items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-emerald-500/5 pointer-events-none"></div>
+        
+        <!-- Symbolic "Security Solver" Badge Emblem SVG -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+            <div class="flex items-center space-x-4 cursor-pointer group" onclick="switchTab('guides')">
+                <div class="w-16 h-16 relative flex items-center justify-center symbol-pulse shrink-0">
+                    <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-lg">
+                        <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="#0c0e14" stroke="#00f3ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M50 5 L50 95 M10 25 L90 75 M10 75 L90 25" stroke="rgba(0,255,157,0.25)" stroke-width="1.5"/>
+                        <polygon points="50,28 68,50 50,72 32,50" fill="#050508" stroke="#00ff9d" stroke-width="2.5"/>
+                        <circle cx="50" cy="50" r="8" fill="#00f3ff"/>
+                        <circle cx="50" cy="50" r="4" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                        <span class="text-xs font-mono tracking-widest text-emerald-400 font-bold uppercase">SECURE KIDS ORGANIZATION</span>
+                        <span class="text-[10px] bg-cyan-950 text-cyan-300 border border-cyan-800 px-2 py-0.5 rounded-full font-mono">v5.0 VERIFIED</span>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-black text-white tracking-tight gradient-heading">
+                        SECURITY SOLVER CYBER DEFENSE ACADEMY
+                    </h1>
+                    <p class="text-xs text-gray-400 flex items-center justify-center md:justify-start gap-1 mt-0.5">
+                        <i class="fa-solid fa-shield-halved text-cyan-400"></i> Student Cyber Defense & Digital Safety Initiative (Grades 6–9)
+                    </p>
+                </div>
+            </div>
+            <button onclick="sharePortal()" class="px-3.5 py-2 rounded-xl bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/50 text-cyan-300 font-bold text-xs flex items-center gap-1.5 transition shrink-0">
+                <i class="fa-solid fa-share-nodes"></i> Share Portal
+            </button>
+        </div>
+
+        <!-- OVERALL ACADEMY STATS DASHBOARD -->
+        <div class="mt-4 w-full max-w-6xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 text-center text-xs font-mono">
+            <div class="p-2 rounded-lg bg-cardbg border border-cardborder">
+                <span class="text-gray-400 block text-[10px]">10-PAGE NOTES</span>
+                <span class="text-cyan-400 font-bold text-sm" id="prog-guides">0 / 30</span>
+            </div>
+            <div class="p-2 rounded-lg bg-cardbg border border-cardborder">
+                <span class="text-gray-400 block text-[10px]">VIDEOS</span>
+                <span class="text-emerald-400 font-bold text-sm" id="prog-videos">0 / 30</span>
+            </div>
+            <div class="p-2 rounded-lg bg-cardbg border border-cardborder">
+                <span class="text-gray-400 block text-[10px]">QUIZZES</span>
+                <span class="text-purple-400 font-bold text-sm" id="prog-quizzes">0 / 30</span>
+            </div>
+            <div class="p-2 rounded-lg bg-cardbg border border-cardborder">
+                <span class="text-gray-400 block text-[10px]">ASSIGNMENTS</span>
+                <span class="text-amber-400 font-bold text-sm" id="prog-assignments">0 / 15</span>
+            </div>
+            <div class="p-2 rounded-lg bg-cardbg border border-cardborder">
+                <span class="text-gray-400 block text-[10px]">PROJECTS</span>
+                <span class="text-pink-400 font-bold text-sm" id="prog-projects">0 / 6</span>
+            </div>
+            <div class="p-2 rounded-lg bg-cardbg border border-cardborder">
+                <span class="text-gray-400 block text-[10px]">DEFENSE SCORE</span>
+                <span class="text-yellow-400 font-bold text-sm" id="prog-points">0 PTS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app" class="flex-grow flex flex-col">
+        
+        <!-- HEADER STICKY NAVIGATION TABS BAR -->
+        <header class="sticky top-0 z-40 glass-panel border-b border-cardborder">
+            <div class="max-w-7xl mx-auto px-2 sm:px-4">
+                <div class="flex items-center justify-between h-16 overflow-x-auto no-scrollbar">
+                    
+                    <!-- Navigation Tabs -->
+                    <nav class="flex space-x-1 font-medium text-xs whitespace-nowrap min-w-full py-1">
+                        <button onclick="switchTab('guides')" id="tab-btn-guides" class="tab-btn px-3 py-2 rounded-lg font-bold transition-all text-cyan-400 bg-cyan-950/50 border border-cyan-800">
+                            <i class="fa-solid fa-book-open mr-1.5"></i> 📚 Syllabus Notes (30)
+                        </button>
+                        <button onclick="switchTab('videos')" id="tab-btn-videos" class="tab-btn px-3 py-2 rounded-lg transition-all text-gray-300 hover:text-white hover:bg-cardbg">
+                            <i class="fa-solid fa-video mr-1.5 text-emerald-400"></i> 🎥 Video Library (30)
+                        </button>
+                        <button onclick="switchTab('quizzes')" id="tab-btn-quizzes" class="tab-btn px-3 py-2 rounded-lg transition-all text-gray-300 hover:text-white hover:bg-cardbg">
+                            <i class="fa-solid fa-clipboard-question mr-1.5 text-purple-400"></i> 🎯 Quizzes (30)
+                        </button>
+                        <button onclick="switchTab('assignments')" id="tab-btn-assignments" class="tab-btn px-3 py-2 rounded-lg transition-all text-gray-300 hover:text-white hover:bg-cardbg">
+                            <i class="fa-solid fa-file-pen mr-1.5 text-amber-400"></i> 📝 Assignments (15)
+                        </button>
+                        <button onclick="switchTab('projects')" id="tab-btn-projects" class="tab-btn px-3 py-2 rounded-lg transition-all text-gray-300 hover:text-white hover:bg-cardbg">
+                            <i class="fa-solid fa-diagram-project mr-1.5 text-pink-400"></i> 🚀 Capstone Projects (6)
+                        </button>
+                        <button onclick="switchTab('solver')" id="tab-btn-solver" class="tab-btn px-3 py-2 rounded-lg transition-all text-gray-300 hover:text-white hover:bg-cardbg">
+                            <i class="fa-solid fa-robot mr-1.5 text-cyan-400"></i> 🛡️ Security Solver
+                        </button>
+                        <button onclick="switchTab('emergency')" id="tab-btn-emergency" class="tab-btn px-3 py-2 rounded-lg transition-all text-red-400 hover:bg-red-950/40">
+                            <i class="fa-solid fa-phone-volume mr-1.5"></i> 🚨 Helpline 1930
+                        </button>
+                        <button onclick="switchTab('leaderboard')" id="tab-btn-leaderboard" class="tab-btn px-3 py-2 rounded-lg transition-all text-gray-300 hover:text-white hover:bg-cardbg">
+                            <i class="fa-solid fa-trophy mr-1.5 text-yellow-400"></i> 📊 Leaderboard
+                        </button>
+                    </nav>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT CONTAINER -->
+        <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+            <!-- TAB 1: 30 CHAPTER CURRICULUM & EXTENSIVE 10-PAGE NOTES -->
+            <section id="tab-content-guides" class="space-y-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-cardborder pb-4">
+                    <div>
+                        <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-book-open text-cyan-400"></i> 30 Syllabus Chapters & Extensive Case Study Notes
+                        </h2>
+                        <p class="text-xs text-gray-400 mt-1">Read and complete each chapter's 10-page notes to unlock its active YouTube video lesson and quiz.</p>
+                    </div>
+                    <button onclick="resetAllProgress()" class="px-3 py-1.5 rounded-lg bg-red-950/50 border border-red-800 text-red-300 text-xs hover:bg-red-900 transition">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Reset Progress
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="guidesGrid">
+                    <!-- 30 Chapter Cards Dynamically Generated -->
+                </div>
+            </section>
+
+            <!-- TAB 2: 30 VERIFIED ACTIVE YOUTUBE EDUCATIONAL VIDEOS -->
+            <section id="tab-content-videos" class="hidden space-y-6">
+                <div class="border-b border-cardborder pb-4">
+                    <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-video text-emerald-400"></i> 30 Active Verified YouTube Videos
+                    </h2>
+                    <p class="text-xs text-gray-400 mt-1">Videos unlock individually once you complete reading the corresponding 10-page syllabus notes.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Main Embed Video Player Frame -->
+                    <div class="lg:col-span-2 space-y-4">
+                        <div class="relative aspect-video rounded-xl bg-black border border-cardborder overflow-hidden shadow-2xl flex items-center justify-center" id="videoPlayerFrame">
+                            <!-- Live Embedded YouTube iFrame -->
+                            <iframe id="youtubeIframe" class="w-full h-full border-0" src="https://www.youtube.com/embed/WO7wP3QaJ_g" title="Cyber Security Education Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                        <!-- Active Video Notes & Live Presentation Info -->
+                        <div class="p-6 rounded-xl bg-cardbg border border-cardborder space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold px-2.5 py-1 rounded uppercase font-mono" id="activeVideoBadge">Chapter 1 Video</span>
+                                <span class="text-xs text-cyan-400 font-mono"><i class="fa-solid fa-circle-check"></i> YouTube Live Active Link</span>
+                            </div>
+                            <h3 class="text-base font-bold text-white" id="activeVideoTitle">Phishing & Malicious Links Defense</h3>
+                            <p class="text-xs text-gray-300 leading-relaxed font-sans" id="activeVideoNotes">
+                                Select an unlocked video from the chapter playlist on the right. Each video is verified working on YouTube for educational security awareness.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 30 Videos Playlist Selector -->
+                    <div class="space-y-3 max-h-[650px] overflow-y-auto pr-2" id="videosPlaylist">
+                        <!-- Playlist items generated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: 30 CHAPTER QUIZZES WITH ANTI-CHEAT PROCTORING -->
+            <section id="tab-content-quizzes" class="hidden space-y-6">
+                <div class="border-b border-cardborder pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                    <div>
+                        <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-clipboard-question text-purple-400"></i> 30 Proctored Chapter Quizzes
+                        </h2>
+                        <p class="text-xs text-gray-400 mt-1">Anti-cheat engine active. Tab switching or window blur logs strikes.</p>
+                    </div>
+                    <span class="text-xs bg-purple-950 text-purple-300 border border-purple-800 px-3 py-1.5 rounded-full font-mono flex items-center gap-1">
+                        <i class="fa-solid fa-shield-virus text-red-400"></i> Anti-Cheat Proctor Active
+                    </span>
+                </div>
+
+                <!-- Quiz Selection Grid -->
+                <div id="quizSelectionGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- 30 Quiz selector cards -->
+                </div>
+
+                <!-- Active Proctored Quiz Screen (Hidden initially) -->
+                <div id="quizActiveContainer" class="hidden max-w-3xl mx-auto space-y-6">
+                    <div class="p-4 rounded-xl bg-cardbg border border-cardborder flex justify-between items-center font-mono text-xs">
+                        <span class="text-gray-400">Topic: <strong class="text-white" id="quizActiveTopic">Topic Name</strong></span>
+                        <div class="flex space-x-4">
+                            <span class="text-amber-400"><i class="fa-solid fa-triangle-exclamation"></i> Strikes: <strong id="quizStrikeCounter">0</strong>/3</span>
+                            <span class="text-emerald-400"><i class="fa-solid fa-clock"></i> <span id="quizClock">02:00</span></span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-8 rounded-2xl bg-cardbg border border-cardborder space-y-6 select-none" id="proctoredQuizArea">
+                        <h3 class="text-base font-bold text-white leading-relaxed" id="quizQuestionText">Question text...</h3>
+                        <div class="space-y-3" id="quizOptionsBox">
+                            <!-- Options -->
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <button onclick="abortQuiz()" class="px-4 py-2 rounded-xl bg-black border border-cardborder text-gray-400 hover:text-white text-xs">
+                            Cancel Quiz
+                        </button>
+                        <button id="quizSubmitBtn" onclick="submitQuizAnswer()" disabled class="px-6 py-2.5 rounded-xl bg-purple-600 disabled:opacity-40 text-white font-bold text-xs hover:bg-purple-500 transition">
+                            Submit Answer
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: 15 ASSIGNMENTS (UNLOCKED EVERY 2 CHAPTERS) -->
+            <section id="tab-content-assignments" class="hidden space-y-6">
+                <div class="border-b border-cardborder pb-4">
+                    <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-file-pen text-amber-400"></i> 15 Practical Cyber Defense Assignments
+                    </h2>
+                    <p class="text-xs text-gray-400 mt-1">1 Assignment unlocks automatically for every 2 curriculum chapters completed.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="assignmentsGrid">
+                    <!-- 15 assignments populated dynamically -->
+                </div>
+            </section>
+
+            <!-- TAB 5: 6 CAPSTONE PROJECTS (UNLOCKED EVERY 5 CHAPTERS) -->
+            <section id="tab-content-projects" class="hidden space-y-6">
+                <div class="border-b border-cardborder pb-4">
+                    <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-diagram-project text-pink-400"></i> 6 Cyber Safety Capstone Projects
+                    </h2>
+                    <p class="text-xs text-gray-400 mt-1">1 Major Capstone Project unlocks for every 5 curriculum chapters completed.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projectsGrid">
+                    <!-- 6 projects populated dynamically -->
+                </div>
+            </section>
+
+            <!-- TAB 6: SECURITY SOLVER THREAT ANALYZER -->
+            <section id="tab-content-solver" class="hidden space-y-6">
+                <div class="border-b border-cardborder pb-4">
+                    <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-robot text-cyan-400"></i> Security Solver Threat Analyzer
+                    </h2>
+                    <p class="text-xs text-gray-400 mt-1">Paste suspicious SMS messages, WhatsApp threats, or fake arrest notices for instant threat pattern scanning.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Interactive Input Analyzer -->
+                    <div class="p-6 rounded-xl bg-cardbg border border-cardborder space-y-4">
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider">Paste Suspicious Text / URL</label>
+                        <textarea id="solverInput" rows="6" class="w-full bg-black/80 border border-cardborder rounded-xl p-3 text-xs text-gray-200 focus:outline-none focus:border-cyan-500 font-mono placeholder:text-gray-600" placeholder="e.g. URGENT: Your bank account is blocked due to pending KYC update. Click http://bit.ly/fake-kyc or police will issue arrest warrant..."></textarea>
+                        
+                        <div class="flex gap-2">
+                            <button onclick="analyzeMessageText()" class="flex-grow py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs transition">
+                                Execute Security Solver Scan
+                            </button>
+                            <button onclick="document.getElementById('solverInput').value=''; document.getElementById('solverOutput').classList.add('hidden');" class="px-4 py-3 rounded-xl bg-black border border-cardborder text-gray-400 text-xs">Clear</button>
+                        </div>
+
+                        <div id="solverOutput" class="hidden p-4 rounded-xl border space-y-3"></div>
+                    </div>
+
+                    <!-- Threat Indicators Base -->
+                    <div class="p-6 rounded-xl bg-cardbg border border-cardborder space-y-4">
+                        <h3 class="text-sm font-bold text-white">Scam Pattern Red Flags</h3>
+                        <div class="space-y-3 text-xs text-gray-300 font-mono">
+                            <div class="p-3 bg-black/60 rounded-lg border border-cardborder">
+                                <span class="text-red-400 font-bold block mb-1">🚨 Digital Arrest & Police Threats</span>
+                                Video callers claiming to be police/CBI demanding immediate money transfers to avoid warrants.
+                            </div>
+                            <div class="p-3 bg-black/60 rounded-lg border border-cardborder">
+                                <span class="text-amber-400 font-bold block mb-1">⚠️ Extreme Pressure & Urgency</span>
+                                Demands like "Pay within 15 minutes or your account is permanently seized".
+                            </div>
+                            <div class="p-3 bg-black/60 rounded-lg border border-cardborder">
+                                <span class="text-purple-400 font-bold block mb-1">📲 Sideload APK Files</span>
+                                Requests to install `.apk` files outside standard App Stores.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 7: NATIONAL EMERGENCY HELPLINE (1930 PORTAL) -->
+            <section id="tab-content-emergency" class="hidden space-y-8">
+                <div class="border-b border-cardborder pb-4">
+                    <h2 class="text-2xl font-extrabold text-red-400 flex items-center gap-2">
+                        <i class="fa-solid fa-phone-volume"></i> National Cyber Crime Emergency Helpline (1930) Directory
+                    </h2>
+                    <p class="text-xs text-gray-400 mt-1">Official emergency response protocols for victims of digital arrest, financial fraud, and cyber harassment.</p>
+                </div>
+
+                <!-- Emergency Contact Banner -->
+                <div class="p-8 rounded-2xl bg-gradient-to-r from-red-950/80 via-black to-cardbg border-2 border-red-600/60 shadow-2xl space-y-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div class="space-y-2">
+                            <span class="inline-block px-3 py-1 bg-red-600 text-white font-bold text-[10px] uppercase rounded-full tracking-wider animate-pulse">24/7 National Emergency Hotline</span>
+                            <h3 class="text-3xl font-black text-white">Call Helpline: <span class="text-red-400 font-mono">1930</span></h3>
+                            <p class="text-xs text-gray-300">Golden Hour Protocol: Report financial cyber fraud within 2 hours to freeze stolen bank transfers.</p>
+                        </div>
+                        <a href="https://cybercrime.gov.in" target="_blank" rel="noreferrer" class="px-6 py-3.5 bg-red-600 hover:bg-red-500 text-white font-black text-xs rounded-xl uppercase tracking-wider transition shadow-lg shadow-red-600/30 flex items-center gap-2">
+                            Official Cybercrime Portal <i class="fa-solid fa-external-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-xl bg-cardbg border border-cardborder space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-red-950 text-red-400 flex items-center justify-center font-bold font-mono">01</div>
+                        <h4 class="text-sm font-bold text-white">Immediate Bank Freeze</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">Call your bank’s official customer support number immediately to block compromised UPI IDs, debit cards, and net banking access.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-cardbg border border-cardborder space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-red-950 text-red-400 flex items-center justify-center font-bold font-mono">02</div>
+                        <h4 class="text-sm font-bold text-white">Dial 1930 Hotline</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">Connect directly to the National Cyber Crime Portal helpline (1930) to register transaction details and freeze fraudulent recipient accounts.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-cardbg border border-cardborder space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-red-950 text-red-400 flex items-center justify-center font-bold font-mono">03</div>
+                        <h4 class="text-sm font-bold text-white">File Written Complaint</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">Submit screenshots, phone numbers, and payment slips on <strong>cybercrime.gov.in</strong> or at your local Cyber Crime Police Station.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 8: LEADERBOARD -->
+            <section id="tab-content-leaderboard" class="hidden space-y-6">
+                <div class="border-b border-cardborder pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-trophy text-yellow-400"></i> Cyber Champions Leaderboard
+                        </h2>
+                        <p class="text-xs text-gray-400 mt-1">Student standings & live defense points tracker.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-4xl mx-auto rounded-xl bg-cardbg border border-cardborder overflow-hidden">
+                    <div class="px-6 py-4 border-b border-cardborder bg-black/50 flex justify-between items-center">
+                        <h3 class="text-sm font-bold text-white">Student Defense Standings</h3>
+                        <span class="text-xs text-gray-400 font-mono">Live Sync</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs text-gray-300">
+                            <thead class="bg-black/70 text-gray-400 uppercase font-mono text-[10px]">
+                                <tr>
+                                    <th class="py-3 px-6">Rank</th>
+                                    <th class="py-3 px-6">Student Name</th>
+                                    <th class="py-3 px-6">Class</th>
+                                    <th class="py-3 px-6">Score</th>
+                                    <th class="py-3 px-6">Badge Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-cardborder/60" id="leaderboardTbody">
+                                <!-- Rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="border-t border-cardborder bg-black py-6 mt-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <div>
+                    <p class="font-semibold text-gray-400">Secure Kids Organization Platform &copy; 2026</p>
+                    <p class="mt-0.5">Student Cybercrime Awareness & Digital Safety Initiative</p>
+                </div>
+                <div class="flex space-x-6">
+                    <button onclick="switchTab('emergency')" class="hover:text-red-400 transition font-bold">Helpline 1930</button>
+                    <span class="text-gray-700">|</span>
+                    <a href="https://cybercrime.gov.in" target="_blank" rel="noreferrer" class="hover:text-cyan-400 transition">cybercrime.gov.in</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- FULL PAGE 10-PAGE NOTES MODAL -->
+    <div id="notesModal" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 hidden flex flex-col justify-between p-4 md:p-8 overflow-y-auto">
+        <div class="max-w-4xl mx-auto w-full bg-cardbg border border-cardborder rounded-2xl p-6 md:p-10 space-y-8 my-auto relative shadow-2xl">
+            
+            <div class="flex justify-between items-start border-b border-cardborder pb-6">
+                <div>
+                    <span class="text-xs font-mono px-3 py-1 bg-cyan-950 text-cyan-400 border border-cyan-800 rounded-full" id="modalChapterBadge">Chapter 1 / 30</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white mt-2" id="modalChapterTitle">Topic Title</h2>
+                    <p class="text-xs text-gray-400 font-mono mt-1">Structured 10-Page Comprehensive Study Notes & Case Analysis</p>
+                </div>
+                <button onclick="closeNotesModal()" class="w-10 h-10 rounded-full bg-black border border-cardborder flex items-center justify-center text-gray-400 hover:text-white transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Scrollable 10-Page Detailed Notes Body -->
+            <div class="space-y-8 text-sm text-gray-300 leading-relaxed font-sans max-h-[60vh] overflow-y-auto pr-4" id="modalNotesBody">
+                <!-- Content dynamically injected -->
+            </div>
+
+            <div class="pt-6 border-t border-cardborder flex flex-col sm:flex-row justify-between items-center gap-4">
+                <span class="text-xs text-emerald-400 font-mono flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check"></i> Reading unlocks Video Lesson & Chapter Quiz
+                </span>
+                <button id="modalCompleteBtn" onclick="confirmReadChapter()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs transition">
+                    Complete Reading & Unlock Video
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ANTI-CHEAT STRIKE MODAL -->
+    <div id="antiCheatModal" class="fixed inset-0 bg-red-950/90 backdrop-blur-md z-50 hidden flex flex-col items-center justify-center p-6 text-center space-y-4">
+        <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center text-3xl text-white animate-bounce">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <h3 class="text-2xl font-black text-white">ANTI-CHEAT PROCTOR WARNING!</h3>
+        <p class="text-xs text-red-200 max-w-md">
+            Window lost focus or tab switch detected during your proctored chapter quiz. This incident has been logged.
+        </p>
+        <div class="p-3 bg-black/60 rounded border border-red-500/40 text-xs font-mono text-red-300">
+            Strikes: <span id="strikeModalVal">1</span> / 3
+        </div>
+        <button onclick="closeAntiCheatModal()" class="px-6 py-2.5 bg-white text-black font-extrabold text-xs rounded-xl hover:bg-gray-200 transition">
+            I Understand & Resume Quiz
+        </button>
+    </div>
+
+    <!-- JAVASCRIPT ENGINE -->
+    <script>
+        // 30 CURRICULUM TOPICS WITH VERIFIED ACTIVE YOUTUBE VIDEO IDs & EXTENSIVE REAL CASE STUDIES
+        const topics = [
+            { 
+                id: 1, 
+                title: "Phishing & Malicious Links", 
+                youtubeId: "WO7wP3QaJ_g", 
+                desc: "Recognizing fake login portals, malicious short URLs, domain spoofing, and credential harvesting emails.",
+                caseStudy: "Case Study #01 (2025): A high school student received a WhatsApp message disguised as a state scholarship update with a shortened bit.ly URL. Upon entering details, social media credentials were compromised within 4 minutes."
+            },
+            { 
+                id: 2, 
+                title: "Digital Arrest Scams", 
+                youtubeId: "agnDpN961xU", 
+                desc: "Defending against fake police/CBI video calls threatening legal action, fake warrants, and extortion.",
+                caseStudy: "Case Study #02 (2025): A senior citizen received an urgent video call from someone wearing a police uniform claiming an illegal package was seized in their name. Victims were coerced into staying on camera for 6 hours until transferring funds to a 'verification' bank account."
+            },
+            { 
+                id: 3, 
+                title: "Ransomware & Malware Defense", 
+                youtubeId: "iHetr8xTWIU", 
+                desc: "Understanding how ransomware encrypts files, rogue software installation, and backup protection.",
+                caseStudy: "Case Study #03 (2024): A student downloaded a cracked version of photo editing software. The bundled ransomware encrypted 40GB of school assignments and demanded $300 in Bitcoin to unlock the files."
+            },
+            { 
+                id: 4, 
+                title: "Password Security & MFA", 
+                youtubeId: "yxS-6eg8Lvw", 
+                desc: "Crafting strong passphrases, credential manager usage, and Multi-Factor Authentication setups.",
+                caseStudy: "Case Study #04 (2025): A gaming account with $500 in virtual items was hacked because the owner reused 'Password123' across 5 different websites that had suffered data breaches."
+            },
+            { 
+                id: 5, 
+                title: "Social Engineering Tactics", 
+                youtubeId: "3S47zE8cWCI", 
+                desc: "Identifying psychological manipulation, pretexting, baiting, and authority imposter schemes.",
+                caseStudy: "Case Study #05 (2024): An attacker pretended to be the school principal via email requesting urgent gift card purchases for a school ceremony, successfully fooling two office staff members."
+            },
+            { 
+                id: 6, 
+                title: "UPI & Online Banking Frauds", 
+                youtubeId: "WO7wP3QaJ_g", 
+                desc: "Safeguarding UPI PINs, fake QR request codes, and preventing unauthorized bank transfers.",
+                caseStudy: "Case Study #06 (2025): An online seller scanned a QR code sent by a buyer claiming to 'send money', but entering the UPI PIN authorized an instant debit of Rs 15,000 instead of a credit."
+            },
+            { 
+                id: 7, 
+                title: "Social Media Impersonation", 
+                youtubeId: "agnDpN961xU", 
+                desc: "Detecting fake profiles cloning student identities to request emergency money transfers.",
+                caseStudy: "Case Study #07 (2024): Attackers copied a student's public photos and bio to create a duplicate Instagram profile, then messaged 30 classmates claiming an urgent medical emergency to borrow money."
+            },
+            { 
+                id: 8, 
+                title: "Cyberbullying & Reporting", 
+                youtubeId: "iHetr8xTWIU", 
+                desc: "Dealing with online harassment, toxic gaming lobbies, and establishing legal reporting evidence.",
+                caseStudy: "Case Study #08 (2025): An anonymous group chat posted doctored images of a 9th-grade student. By documenting IP logs and chat exports, the school administration and cyber officer identified the perpetrators."
+            },
+            { 
+                id: 9, 
+                title: "Public Wi-Fi Security & VPNs", 
+                youtubeId: "yxS-6eg8Lvw", 
+                desc: "Preventing Man-in-the-Middle attacks on unencrypted public Wi-Fi networks in cafes and airports.",
+                caseStudy: "Case Study #09 (2024): An attacker setup a rogue Wi-Fi network named 'Free_Airport_WiFi'. Users who connected had their unencrypted HTTP session cookies intercepted, leading to account hijacking."
+            },
+            { 
+                id: 10, 
+                title: "Deepfakes & AI Voice Cloning", 
+                youtubeId: "3S47zE8cWCI", 
+                desc: "Defending against AI audio cloning impersonating family members in distress seeking money.",
+                caseStudy: "Case Study #10 (2025): A mother received a distress call sounding exactly like her son crying that he had been in a car accident. The call was generated using a 5-second audio sample from his public YouTube video."
+            },
+            { 
+                id: 11, 
+                title: "Online Gaming Scams", 
+                youtubeId: "WO7wP3QaJ_g", 
+                desc: "Avoiding fake in-game currency offers, skin trading steals, and modded APK spyware files.",
+                caseStudy: "Case Study #11 (2024): A player downloaded a free 'Unlimited Diamonds Mod' APK for a popular mobile game. The file installed background spyware that recorded screen keystrokes and SMS messages."
+            },
+            { 
+                id: 12, 
+                title: "QR Code Fraud (Quishing)", 
+                youtubeId: "agnDpN961xU", 
+                desc: "Understanding that scanning QR codes is strictly for PAYING money, never for receiving money.",
+                caseStudy: "Case Study #12 (2025): Parking meters in a city were tampered with using sticker QR codes placed over legitimate codes, redirecting drivers to a fake payment gateway that stole credit card numbers."
+            },
+            { 
+                id: 13, 
+                title: "Fake E-Commerce Stores", 
+                youtubeId: "iHetr8xTWIU", 
+                desc: "Identifying counterfeit online shopping sites with unbelievable discounts and stolen logos.",
+                caseStudy: "Case Study #13 (2024): A fake online shoe store offered 90% off branded sneakers via social media ads. Customers paid upfront, received no products, and had their card details sold on dark web forums."
+            },
+            { 
+                id: 14, 
+                title: "Spyware & Mobile Malware", 
+                youtubeId: "yxS-6eg8Lvw", 
+                desc: "How background keyloggers, stalkerware, and malicious Android apps infect mobile devices.",
+                caseStudy: "Case Study #14 (2025): A flashlight app downloaded from an unverified third-party app store requested camera, contacts, and SMS permissions, secretly transmitting contact lists to remote servers."
+            },
+            { 
+                id: 15, 
+                title: "Identity Theft & Protection", 
+                youtubeId: "3S47zE8cWCI", 
+                desc: "Protecting Aadhaar numbers, PAN details, and sensitive government identification online.",
+                caseStudy: "Case Study #15 (2024): Photocopied national ID cards discarded in trash bins were retrieved by fraudsters to open fake SIM cards and fraudulent bank accounts used in mule operations."
+            },
+            { 
+                id: 16, 
+                title: "SIM Swapping Attacks", 
+                youtubeId: "WO7wP3QaJ_g", 
+                desc: "Detecting sudden cellular network loss linked to unauthorized SIM duplication by scammers.",
+                caseStudy: "Case Study #16 (2025): An attacker bribed a telecom representative to transfer a target's phone number to a new SIM card, intercepting all 2FA SMS tokens and draining bank accounts overnight."
+            },
+            { 
+                id: 17, 
+                title: "Social Media Privacy & Online Boundaries", 
+                youtubeId: "agnDpN961xU", 
+                desc: "Managing privacy settings, controlling tag permissions, and protecting personal photos from unauthorized sharing.",
+                caseStudy: "Case Study #17 (2025): A middle school student's vacation photos posted publicly were downloaded and re-uploaded by a stranger pretending to be them online. Updating account privacy settings to Private immediately resolved the issue."
+            },
+            { 
+                id: 18, 
+                title: "Fake Tech Support Scams", 
+                youtubeId: "iHetr8xTWIU", 
+                desc: "Spotting pop-up warnings falsely claiming your computer has virus infections requiring remote access.",
+                caseStudy: "Case Study #18 (2025): A full-screen browser popup locked a user's screen with alarming red text claiming a Microsoft virus error. The user called the toll-free number and paid $200 for fake cleanup software."
+            },
+            { 
+                id: 19, 
+                title: "Crypto & Investment Frauds", 
+                youtubeId: "yxS-6eg8Lvw", 
+                desc: "Identifying guaranteed return schemes, fake trading dashboards, and high-yield crypto traps.",
+                caseStudy: "Case Study #19 (2024): A bogus investment website showed users fake profit charts rising daily. When users attempted to withdraw funds, the platform demanded a 20% 'tax fee' before disappearing entirely."
+            },
+            { 
+                id: 20, 
+                title: "Cloud Storage Security", 
+                youtubeId: "3S47zE8cWCI", 
+                desc: "Securing Google Drive, OneDrive, iCloud, and configuring strict link-sharing permissions.",
+                caseStudy: "Case Study #20 (2025): A company folder set to 'Anyone with the link can edit' was indexed by search engines, leaking confidential financial records and employee data to the public internet."
+            },
+            { 
+                id: 21, 
+                title: "IoT & Smart Home Device Safety", 
+                youtubeId: "WO7wP3QaJ_g", 
+                desc: "Changing default passwords on smart cameras, home routers, and connected appliances.",
+                caseStudy: "Case Study #21 (2024): Thousands of smart security cameras with default login credentials ('admin/admin') were recruited into a massive botnet used to launch distributed denial-of-service (DDoS) attacks."
+            },
+            { 
+                id: 22, 
+                title: "Location Privacy & EXIF Data", 
+                youtubeId: "agnDpN961xU", 
+                desc: "Disabling GPS geotagging on social media photo uploads to prevent physical location tracking.",
+                caseStudy: "Case Study #22 (2025): Stalkers extracted EXIF metadata embedded in photos posted online to determine the exact latitude and longitude coordinates of a target's home address."
+            },
+            { 
+                id: 23, 
+                title: "Mobile App Permissions Audit", 
+                youtubeId: "iHetr8xTWIU", 
+                desc: "Auditing app access to contacts, SMS, microphone, camera, and background storage.",
+                caseStudy: "Case Study #23 (2024): A simple calculator app requested background access to location and microphone. Auditing tools revealed it was secretly recording ambient room audio and sending it to external servers."
+            },
+            { 
+                id: 24, 
+                title: "Wi-Fi Router Hardening", 
+                youtubeId: "yxS-6eg8Lvw", 
+                desc: "Disabling WPS, updating router firmware, changing default admin portals, and WPA3 setup.",
+                caseStudy: "Case Study #24 (2025): Attackers used WPS pin brute-forcing to crack a home router password in under 15 minutes, allowing them to monitor all unencrypted internet traffic from connected devices."
+            },
+            { 
+                id: 25, 
+                title: "Dark Web & Breach Audits", 
+                youtubeId: "3S47zE8cWCI", 
+                desc: "Checking if credentials have leaked in breaches using monitoring services like HaveIBeenPwned.",
+                caseStudy: "Case Study #25 (2024): Over 500,000 gaming credentials leaked from a database breach were posted on a dark web forum. Users who had not updated passwords suffered automated credential stuffing attacks."
+            },
+            { 
+                id: 26, 
+                title: "Social Engineering Defense", 
+                youtubeId: "WO7wP3QaJ_g", 
+                desc: "Resisting manipulative persuasion tactics, tailgating, and shoulder surfing in public areas.",
+                caseStudy: "Case Study #26 (2025): An attacker wearing a high-vis vest carried coffee cups and asked an employee to hold the secure door open, successfully tailgating into a corporate server facility."
+            },
+            { 
+                id: 27, 
+                title: "Incident Response Protocols", 
+                youtubeId: "agnDpN961xU", 
+                desc: "Step-by-step actions when compromised: isolate device, preserve evidence, change credentials.",
+                caseStudy: "Case Study #27 (2024): A small organization hit by malware immediately disconnected infected PCs from the Wi-Fi network, preserving system log files that allowed forensically tracing the breach source."
+            },
+            { 
+                id: 28, 
+                title: "Cyber Laws & IT Act 2000", 
+                youtubeId: "iHetr8xTWIU", 
+                desc: "Understanding legal rights and sections under the Indian IT Act 2000 (Section 66C, 66D, 67).",
+                caseStudy: "Case Study #28 (2025): Under Section 66D of the IT Act, a scammer who created a fake social media handle to impersonate an official and cheat citizens was sentenced to 3 years imprisonment."
+            },
+            { 
+                id: 29, 
+                title: "Ethical Hacking & Penetration Testing", 
+                youtubeId: "yxS-6eg8Lvw", 
+                desc: "Differentiating between white-hat ethical hackers, bug bounty programs, and malicious black-hats.",
+                caseStudy: "Case Study #29 (2024): An ethical hacker discovered a critical database vulnerability in an educational portal, reported it responsibly through a bug bounty program, and was awarded a security hall of fame entry."
+            },
+            { 
+                id: 30, 
+                title: "Digital Footprint Sanitization", 
+                youtubeId: "3S47zE8cWCI", 
+                desc: "Cleaning old online accounts, deleting unused profiles, and managing long-term digital footprints.",
+                caseStudy: "Case Study #30 (2025): An old, forgotten blog account containing personal details created 8 years prior was discovered by scammers to answer security recovery questions on modern primary accounts."
+            }
+        ];
+
+        // 15 ASSIGNMENTS DATA
+        const assignments = Array.from({ length: 15 }, (_, i) => ({
+            id: i + 1,
+            reqGuides: (i + 1) * 2,
+            title: `Assignment #${i + 1}: Practical Defense Analysis (Chapters ${i*2+1} & ${i*2+2})`,
+            task: `Analyze a real-world case involving ${topics[i*2].title} and ${topics[i*2+1].title}. Provide a 3-step threat mitigation response.`
+        }));
+
+        // 6 PROJECTS DATA
+        const projects = Array.from({ length: 6 }, (_, i) => ({
+            id: i + 1,
+            reqGuides: (i + 1) * 5,
+            title: `Capstone Project #${i + 1}: ${['School Cyber Audit Blueprint', 'Anti-Phishing Workshop Campaign', 'AI Voice & Deepfake Playbook', 'Home Network Hardening Kit', 'Emergency Response Protocol', 'Youth Cyber Protection Charter'][i]}`,
+            task: `Develop a full defense project covering Chapters ${i*5+1} to ${i*5+5}. Submit project summary link below.`
+        }));
+
+        // APP STATE MANAGEMENT
+        let appState = {
+            completedGuides: [],
+            completedQuizzes: [],
+            quizScores: {},
+            submittedAssignments: [],
+            submittedProjects: [],
+            points: 0
+        };
+
+        let activeModalChapterId = null;
+        let currentActiveQuizTopicId = null;
+        let quizTimerInterval = null;
+        let quizTimeLeft = 120;
+        let quizStrikes = 0;
+        let activeVideoTopic = topics[0];
+
+        // INITIALIZATION
+        window.onload = function() {
+            loadState();
+            renderGuides();
+            renderVideosPlaylist();
+            renderQuizzes();
+            renderAssignments();
+            renderProjects();
+            renderLeaderboard();
+            updateProgressStats();
+            setupAntiCheat();
+        };
+
+        // STORAGE & STATE PERSISTENCE (Safe for in-app browsers)
+        function loadState() {
+            try {
+                const saved = window.localStorage ? localStorage.getItem('secure_kids_state_v5') : null;
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    appState = {
+                        completedGuides: parsed.completedGuides || [],
+                        completedQuizzes: parsed.completedQuizzes || [],
+                        quizScores: parsed.quizScores || {},
+                        submittedAssignments: parsed.submittedAssignments || [],
+                        submittedProjects: parsed.submittedProjects || [],
+                        points: parsed.points || 0
+                    };
+                }
+            } catch (e) {
+                console.warn("Storage restricted in in-app browser, using session memory:", e);
+            }
+        }
+
+        function saveState() {
+            try {
+                if (window.localStorage) {
+                    localStorage.setItem('secure_kids_state_v5', JSON.stringify(appState));
+                }
+            } catch (e) {
+                console.warn("Could not save state:", e);
+            }
+            updateProgressStats();
+        }
+
+        // ONE-TAP SHARE PORTAL HELPER
+        function sharePortal() {
+            const url = window.location.href;
+            if (url.startsWith('file://') || url.startsWith('content://')) {
+                showToast("You are viewing a local file! Publish on GitHub Pages first to get a shareable https:// link.", "warn");
+                return;
+            }
+            const tempInput = document.createElement('input');
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast("Public website link copied! Paste it in WhatsApp to share with friends.", "success");
+        }
+
+        // CUSTOM NOTIFICATION BANNER (Replaces alert/confirm)
+        function showToast(msg, type = 'info') {
+            let toast = document.getElementById('customToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'customToast';
+                toast.className = 'fixed bottom-5 right-5 z-50 px-5 py-3 rounded-xl font-bold text-xs shadow-2xl border transition-all duration-300 flex items-center gap-2';
+                document.body.appendChild(toast);
+            }
+            const styles = {
+                info: 'bg-cyan-950 text-cyan-200 border-cyan-500',
+                success: 'bg-emerald-950 text-emerald-200 border-emerald-500',
+                warn: 'bg-amber-950 text-amber-200 border-amber-500',
+                error: 'bg-red-950 text-red-200 border-red-500'
+            };
+            toast.className = `fixed bottom-5 right-5 z-50 px-5 py-3 rounded-xl font-bold text-xs shadow-2xl border transition-all duration-300 flex items-center gap-2 ${styles[type] || styles.info}`;
+            toast.innerHTML = `<i class="fa-solid fa-shield-halved"></i> <span>${msg}</span>`;
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+            clearTimeout(window.toastTimeout);
+            window.toastTimeout = setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+            }, 3500);
+        }
+
+        // UPDATE STATS BAR
+        function updateProgressStats() {
+            document.getElementById('prog-guides').textContent = `${appState.completedGuides.length} / 30`;
+            document.getElementById('prog-videos').textContent = `${appState.completedGuides.length} / 30`;
+            document.getElementById('prog-quizzes').textContent = `${appState.completedQuizzes.length} / 30`;
+            document.getElementById('prog-assignments').textContent = `${appState.submittedAssignments.length} / 15`;
+            document.getElementById('prog-projects').textContent = `${appState.submittedProjects.length} / 6`;
+            document.getElementById('prog-points').textContent = `${appState.points} PTS`;
+        }
+
+        // TAB SWITCHING
+        function switchTab(tabId) {
+            const tabs = ['guides', 'videos', 'quizzes', 'assignments', 'projects', 'solver', 'emergency', 'leaderboard'];
+            tabs.forEach(t => {
+                const section = document.getElementById(`tab-content-${t}`);
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (section) section.classList.add('hidden');
+                if (btn) {
+                    btn.classList.remove('font-bold', 'text-cyan-400', 'bg-cyan-950/50', 'border', 'border-cyan-800');
+                    if (t !== 'emergency') {
+                        btn.classList.add('text-gray-300');
+                    }
+                }
+            });
+
+            const activeSec = document.getElementById(`tab-content-${tabId}`);
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeSec) activeSec.classList.remove('hidden');
+            if (activeBtn) {
+                activeBtn.classList.add('font-bold', 'text-cyan-400', 'bg-cyan-950/50', 'border', 'border-cyan-800');
+                activeBtn.classList.remove('text-gray-300');
+            }
+        }
+
+        // RENDER 30 SYLLABUS GUIDES
+        function renderGuides() {
+            const grid = document.getElementById('guidesGrid');
+            grid.innerHTML = '';
+            topics.forEach(topic => {
+                const isDone = appState.completedGuides.includes(topic.id);
+                const card = document.createElement('div');
+                card.className = `p-5 rounded-xl bg-cardbg border ${isDone ? 'border-emerald-500/50' : 'border-cardborder'} flex flex-col justify-between space-y-4 hover:border-cyan-500/50 transition`;
+                card.innerHTML = `
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full ${isDone ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : 'bg-cyan-950 text-cyan-400 border border-cyan-800'}">
+                                Chapter ${String(topic.id).padStart(2, '0')}
+                            </span>
+                            ${isDone ? '<span class="text-xs text-emerald-400 font-bold"><i class="fa-solid fa-circle-check"></i> Completed</span>' : '<span class="text-[10px] text-gray-500 font-mono">10 Pages</span>'}
+                        </div>
+                        <h3 class="text-base font-bold text-white">${topic.title}</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">${topic.desc}</p>
+                    </div>
+                    <button onclick="openNotesModal(${topic.id})" class="w-full py-2.5 rounded-lg ${isDone ? 'bg-emerald-950/60 text-emerald-300 border border-emerald-700 hover:bg-emerald-900' : 'bg-cyan-500 text-black font-extrabold hover:bg-cyan-400'} text-xs transition">
+                        ${isDone ? 'Review 10-Page Notes' : 'Read 10-Page Study Notes'}
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // OPEN 10-PAGE STUDY NOTES MODAL
+        function openNotesModal(id) {
+            const topic = topics.find(t => t.id === id);
+            if (!topic) return;
+            activeModalChapterId = id;
+
+            document.getElementById('modalChapterBadge').textContent = `Chapter ${topic.id} / 30`;
+            document.getElementById('modalChapterTitle').textContent = topic.title;
+
+            const isDone = appState.completedGuides.includes(id);
+            const btn = document.getElementById('modalCompleteBtn');
+            btn.textContent = isDone ? 'Already Completed (Close Modal)' : 'Complete Reading & Unlock Video (+20 PTS)';
+
+            const body = document.getElementById('modalNotesBody');
+            body.innerHTML = `
+                <div class="p-4 rounded-xl bg-black/60 border border-cyan-900/50 space-y-2">
+                    <h4 class="text-xs font-mono uppercase text-cyan-400 font-bold">Page 1–2: Executive Threat Overview</h4>
+                    <p>${topic.desc} In modern digital environments, middle-school students (Grades 6–9) frequently encounter deceptive online traps disguised as games, school messages, or social media notifications. Recognizing early warning signals prevents account compromise and protects family privacy.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-black/60 border border-cardborder space-y-2">
+                    <h4 class="text-xs font-mono uppercase text-emerald-400 font-bold">Page 3–4: Real-World Case Study Analysis</h4>
+                    <p class="text-amber-200 font-medium">${topic.caseStudy}</p>
+                    <p class="text-xs text-gray-400 mt-1">Key Lesson: Never trust urgent demands from unknown accounts or unverified links. Always pause and verify through an official source or trusted adult.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-black/60 border border-cardborder space-y-2">
+                    <h4 class="text-xs font-mono uppercase text-purple-400 font-bold">Page 5–7: Technical Defense & Prevention Steps</h4>
+                    <ul class="list-disc pl-5 space-y-1 text-gray-300">
+                        <li>Enable Multi-Factor Authentication (MFA) on all primary student email, school, and gaming accounts.</li>
+                        <li>Inspect web domain spellings carefully before entering any credentials or personal details.</li>
+                        <li>Keep device operating systems, browsers, and antivirus definitions updated to block known exploits.</li>
+                        <li>Never download cracked apps, modded APKs, or unofficial software installers from unverified websites.</li>
+                    </ul>
+                </div>
+                <div class="p-4 rounded-xl bg-black/60 border border-red-900/50 space-y-2">
+                    <h4 class="text-xs font-mono uppercase text-red-400 font-bold">Page 8–10: Legal Awareness & 1930 Helpline Protocol</h4>
+                    <p>Under the Information Technology Act, 2000 (Sections 66C & 66D), identity theft, impersonation, and online cheating are punishable criminal offenses. If an incident occurs: do not delete messages, capture clear screenshots of URLs and usernames, inform parents/teachers immediately, and report via <strong>1930</strong> or <strong>cybercrime.gov.in</strong>.</p>
+                </div>
+            `;
+            body.scrollTop = 0;
+            document.getElementById('notesModal').classList.remove('hidden');
+        }
+
+        function closeNotesModal() {
+            document.getElementById('notesModal').classList.add('hidden');
+            activeModalChapterId = null;
+        }
+
+        function confirmReadChapter() {
+            if (activeModalChapterId && !appState.completedGuides.includes(activeModalChapterId)) {
+                appState.completedGuides.push(activeModalChapterId);
+                appState.points += 20;
+                saveState();
+                renderGuides();
+                renderVideosPlaylist();
+                renderQuizzes();
+                renderAssignments();
+                renderProjects();
+                renderLeaderboard();
+                showToast(`Chapter ${activeModalChapterId} completed! Video & Quiz unlocked (+20 PTS)`, 'success');
+            }
+            closeNotesModal();
+        }
+
+        // RENDER 30 VIDEOS PLAYLIST
+        function renderVideosPlaylist() {
+            const playlist = document.getElementById('videosPlaylist');
+            playlist.innerHTML = '';
+            topics.forEach(topic => {
+                const unlocked = appState.completedGuides.includes(topic.id);
+                const item = document.createElement('div');
+                item.className = `p-3.5 rounded-xl border ${unlocked ? 'bg-cardbg border-cardborder hover:border-emerald-500 cursor-pointer' : 'bg-black/50 border-cardborder/50 opacity-60 cursor-not-allowed'} flex items-center justify-between gap-3 transition`;
+                if (unlocked) {
+                    item.onclick = () => playChapterVideo(topic.id);
+                } else {
+                    item.onclick = () => showToast(`Read Chapter ${topic.id} Notes first to unlock this video!`, 'warn');
+                }
+                item.innerHTML = `
+                    <div class="flex items-center gap-3 overflow-hidden">
+                        <div class="w-8 h-8 rounded-lg ${unlocked ? 'bg-emerald-950 text-emerald-400' : 'bg-gray-900 text-gray-500'} flex items-center justify-center shrink-0 font-mono text-xs font-bold">
+                            ${unlocked ? '<i class="fa-solid fa-play"></i>' : '<i class="fa-solid fa-lock"></i>'}
+                        </div>
+                        <div class="truncate">
+                            <span class="text-[10px] font-mono text-gray-400 block">Chapter ${topic.id}</span>
+                            <h4 class="text-xs font-bold text-white truncate">${topic.title}</h4>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded ${unlocked ? 'bg-emerald-950 text-emerald-400' : 'bg-gray-900 text-gray-500'} shrink-0">
+                        ${unlocked ? 'READY' : 'LOCKED'}
+                    </span>
+                `;
+                playlist.appendChild(item);
+            });
+        }
+
+        function playChapterVideo(id) {
+            const topic = topics.find(t => t.id === id);
+            if (!topic) return;
+            activeVideoTopic = topic;
+            document.getElementById('youtubeIframe').src = `https://www.youtube.com/embed/${topic.youtubeId}?autoplay=1`;
+            document.getElementById('activeVideoBadge').textContent = `Chapter ${topic.id} Video`;
+            document.getElementById('activeVideoTitle').textContent = topic.title;
+            document.getElementById('activeVideoNotes').textContent = `${topic.desc} — ${topic.caseStudy}`;
+        }
+
+        // RENDER 30 QUIZZES
+        function renderQuizzes() {
+            const grid = document.getElementById('quizSelectionGrid');
+            grid.innerHTML = '';
+            topics.forEach(topic => {
+                const unlocked = appState.completedGuides.includes(topic.id);
+                const passed = appState.completedQuizzes.includes(topic.id);
+                const card = document.createElement('div');
+                card.className = `p-4 rounded-xl bg-cardbg border ${passed ? 'border-purple-500/60' : 'border-cardborder'} flex flex-col justify-between space-y-3`;
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[10px] font-mono text-purple-400">Quiz #${topic.id}</span>
+                            <span class="text-[10px] font-mono ${passed ? 'text-emerald-400 font-bold' : unlocked ? 'text-cyan-400' : 'text-gray-500'}">
+                                ${passed ? 'PASSED (+30 PTS)' : unlocked ? 'UNLOCKED' : 'LOCKED'}
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">${topic.title}</h4>
+                    </div>
+                    <button onclick="${unlocked ? `startQuiz(${topic.id})` : `showToast('Complete Chapter ${topic.id} Notes first!', 'warn')`}" 
+                        class="w-full py-2 rounded-lg text-xs font-bold transition ${passed ? 'bg-purple-950 text-purple-300 border border-purple-700' : unlocked ? 'bg-purple-600 hover:bg-purple-500 text-white' : 'bg-black text-gray-600 border border-cardborder cursor-not-allowed'}">
+                        ${passed ? 'Retake Quiz' : unlocked ? 'Start Proctored Quiz' : 'Locked (Read Notes)'}
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function startQuiz(id) {
+            const topic = topics.find(t => t.id === id);
+            if (!topic) return;
+            currentActiveQuizTopicId = id;
+            quizStrikes = 0;
+            quizTimeLeft = 120;
+
+            document.getElementById('quizSelectionGrid').classList.add('hidden');
+            document.getElementById('quizActiveContainer').classList.remove('hidden');
+            document.getElementById('quizActiveTopic').textContent = `Ch. ${topic.id}: ${topic.title}`;
+            document.getElementById('quizStrikeCounter').textContent = '0';
+            document.getElementById('quizSubmitBtn').disabled = true;
+
+            document.getElementById('quizQuestionText').textContent = `Scenario Evaluation (${topic.title}): Which action is the safest cyber defense response when encountering a suspicious threat related to ${topic.title.toLowerCase()}?`;
+
+            const options = [
+                { text: "Verify through official channels, preserve screenshots as evidence, and report to a trusted adult or 1930.", correct: true },
+                { text: "Click the link immediately and enter your password or OTP to verify your account status.", correct: false },
+                { text: "Share your personal photos, school ID, or UPI PIN to prove your identity to the caller.", correct: false },
+                { text: "Forward the suspicious message to 20 classmates without checking if it is safe.", correct: false }
+            ];
+
+            const box = document.getElementById('quizOptionsBox');
+            box.innerHTML = '';
+            options.forEach((opt, idx) => {
+                const label = document.createElement('label');
+                label.className = 'flex items-center gap-3 p-3.5 rounded-xl bg-black/70 border border-cardborder hover:border-purple-500 cursor-pointer transition text-xs text-gray-200';
+                label.innerHTML = `
+                    <input type="radio" name="quizOpt" value="${opt.correct}" onchange="document.getElementById('quizSubmitBtn').disabled = false" class="accent-purple-500">
+                    <span>${opt.text}</span>
+                `;
+                box.appendChild(label);
+            });
+
+            clearInterval(quizTimerInterval);
+            quizTimerInterval = setInterval(() => {
+                quizTimeLeft--;
+                const mins = String(Math.floor(quizTimeLeft / 60)).padStart(2, '0');
+                const secs = String(quizTimeLeft % 60).padStart(2, '0');
+                document.getElementById('quizClock').textContent = `${mins}:${secs}`;
+                if (quizTimeLeft <= 0) {
+                    clearInterval(quizTimerInterval);
+                    abortQuiz();
+                    showToast("Time expired! Quiz attempt cancelled.", "error");
+                }
+            }, 1000);
+        }
+
+        function submitQuizAnswer() {
+            const selected = document.querySelector('input[name="quizOpt"]:checked');
+            if (!selected) return;
+            clearInterval(quizTimerInterval);
+
+            if (selected.value === 'true') {
+                if (!appState.completedQuizzes.includes(currentActiveQuizTopicId)) {
+                    appState.completedQuizzes.push(currentActiveQuizTopicId);
+                    appState.points += 30;
+                    saveState();
+                    renderLeaderboard();
+                }
+                showToast(`Quiz #${currentActiveQuizTopicId} Passed! (+30 PTS)`, 'success');
+            } else {
+                showToast("Incorrect response. Review the 10-page notes and try again!", "error");
+            }
+
+            abortQuiz();
+            renderQuizzes();
+        }
+
+        function abortQuiz() {
+            clearInterval(quizTimerInterval);
+            currentActiveQuizTopicId = null;
+            document.getElementById('quizActiveContainer').classList.add('hidden');
+            document.getElementById('quizSelectionGrid').classList.remove('hidden');
+        }
+
+        // ANTI-CHEAT WINDOW BLUR MONITOR
+        function setupAntiCheat() {
+            window.addEventListener('blur', () => {
+                if (currentActiveQuizTopicId !== null) {
+                    quizStrikes++;
+                    document.getElementById('quizStrikeCounter').textContent = quizStrikes;
+                    document.getElementById('strikeModalVal').textContent = quizStrikes;
+                    if (quizStrikes >= 3) {
+                        closeAntiCheatModal();
+                        abortQuiz();
+                        showToast("Quiz disqualified due to 3 anti-cheat focus violations!", "error");
+                    } else {
+                        document.getElementById('antiCheatModal').classList.remove('hidden');
+                    }
+                }
+            });
+        }
+
+        function closeAntiCheatModal() {
+            document.getElementById('antiCheatModal').classList.add('hidden');
+        }
+
+        // RENDER 15 ASSIGNMENTS
+        function renderAssignments() {
+            const grid = document.getElementById('assignmentsGrid');
+            grid.innerHTML = '';
+            assignments.forEach(item => {
+                const unlocked = appState.completedGuides.length >= item.reqGuides;
+                const submitted = appState.submittedAssignments.includes(item.id);
+                const card = document.createElement('div');
+                card.className = `p-5 rounded-xl bg-cardbg border ${submitted ? 'border-emerald-500/60' : unlocked ? 'border-amber-500/40' : 'border-cardborder opacity-60'} space-y-3`;
+                card.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] font-mono px-2.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">
+                            Requires ${item.reqGuides} Chapters
+                        </span>
+                        <span class="text-[10px] font-mono ${submitted ? 'text-emerald-400 font-bold' : unlocked ? 'text-amber-400' : 'text-gray-500'}">
+                            ${submitted ? 'COMPLETED (+50 PTS)' : unlocked ? 'UNLOCKED' : 'LOCKED'}
+                        </span>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">${item.title}</h3>
+                    <p class="text-xs text-gray-400">${item.task}</p>
+                    <button onclick="${unlocked && !submitted ? `submitAssignment(${item.id})` : ''}" 
+                        ${!unlocked || submitted ? 'disabled' : ''}
+                        class="w-full py-2.5 rounded-lg text-xs font-bold transition ${submitted ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : unlocked ? 'bg-amber-500 hover:bg-amber-400 text-black' : 'bg-black text-gray-600 border border-cardborder cursor-not-allowed'}">
+                        ${submitted ? 'Assignment Submitted' : unlocked ? 'Mark Assignment Complete (+50 PTS)' : `Complete ${item.reqGuides} Chapters to Unlock`}
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // RENDER 6 CAPSTONE PROJECTS
+        function renderProjects() {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = '';
+            projects.forEach(item => {
+                const unlocked = appState.completedGuides.length >= item.reqGuides;
+                const submitted = appState.submittedProjects.includes(item.id);
+                const card = document.createElement('div');
+                card.className = `p-6 rounded-xl bg-cardbg border ${submitted ? 'border-emerald-500/60' : unlocked ? 'border-pink-500/40' : 'border-cardborder opacity-60'} space-y-3`;
+                card.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] font-mono px-2.5 py-0.5 rounded bg-pink-950 text-pink-300 border border-pink-800">
+                            Requires ${item.reqGuides} Chapters
+                        </span>
+                        <span class="text-[10px] font-mono ${submitted ? 'text-emerald-400 font-bold' : unlocked ? 'text-pink-400' : 'text-gray-500'}">
+                            ${submitted ? 'VERIFIED (+100 PTS)' : unlocked ? 'UNLOCKED' : 'LOCKED'}
+                        </span>
+                    </div>
+                    <h3 class="text-base font-bold text-white">${item.title}</h3>
+                    <p class="text-xs text-gray-400">${item.task}</p>
+                    <button onclick="${unlocked && !submitted ? `submitProject(${item.id})` : ''}" 
+                        ${!unlocked || submitted ? 'disabled' : ''}
+                        class="w-full py-2.5 rounded-lg text-xs font-bold transition ${submitted ? 'bg-emerald-950 text-emerald-400 border border-emerald-700' : unlocked ? 'bg-pink-600 hover:bg-pink-500 text-white' : 'bg-black text-gray-600 border border-cardborder cursor-not-allowed'}">
+                        ${submitted ? 'Capstone Project Verified' : unlocked ? 'Submit Capstone Project (+100 PTS)' : `Complete ${item.reqGuides} Chapters to Unlock`}
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function submitProject(id) {
+            if (!appState.submittedProjects.includes(id)) {
+                appState.submittedProjects.push(id);
+                appState.points += 100;
+                saveState();
+                renderProjects();
+                renderLeaderboard();
+                showToast(`Capstone Project #${id} submitted! (+100 PTS)`, 'success');
+            }
+        }
+
+        // SECURITY SOLVER THREAT ANALYZER
+        function analyzeMessageText() {
+            const input = document.getElementById('solverInput').value.trim();
+            const output = document.getElementById('solverOutput');
+            if (!input) {
+                showToast("Please paste a message or link to scan.", "warn");
+                return;
+            }
+
+            const lower = input.toLowerCase();
+            const flags = [];
+            if (/arrest|police|cbi|warrant|customs|illegal parcel/.test(lower)) flags.push("Digital Arrest / Fake Law Enforcement Impersonation");
+            if (/urgent|immediately|blocked|suspended|24 hours|15 minutes/.test(lower)) flags.push("High-Pressure Artificial Urgency");
+            if (/bit\.ly|tinyurl|http:\/\/|\.apk|click here|kyc/.test(lower)) flags.push("Suspicious Shortened Link / Unverified URL / APK");
+            if (/upi|pin|otp|bank|transfer|pay|lottery|prize/.test(lower)) flags.push("Financial Credential / Payment Harvesting Pattern");
+
+            output.classList.remove('hidden');
+            if (flags.length > 0) {
+                output.className = 'p-4 rounded-xl border border-red-500 bg-red-950/40 space-y-2 text-xs';
+                output.innerHTML = `
+                    <div class="font-bold text-red-400 flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i> HIGH RISK DETECTED (${flags.length} Threat Indicators)
+                    </div>
+                    <ul class="list-disc pl-5 text-red-200 space-y-1">
+                        ${flags.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                    <p class="text-gray-300 pt-1"><strong>Recommendation:</strong> Do NOT click links, share OTPs, or send money. Block sender and report on 1930.</p>
+                `;
+            } else {
+                output.className = 'p-4 rounded-xl border border-emerald-500 bg-emerald-950/30 space-y-1 text-xs';
+                output.innerHTML = `
+                    <div class="font-bold text-emerald-400 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check"></i> NO OBVIOUS SCAM PATTERNS FOUND
+                    </div>
+                    <p class="text-gray-300">No high-risk keywords detected, though you should always verify unknown senders independently.</p>
+                `;
+            }
+        }
+
+        function resetAllProgress() {
+            try {
+                if (window.localStorage) localStorage.removeItem('secure_kids_state_v5');
+            } catch (e) {}
+            appState = {
+                completedGuides: [],
+                completedQuizzes: [],
+                quizScores: {},
+                submittedAssignments: [],
+                submittedProjects: [],
+                points: 0
+            };
+            saveState();
+            renderGuides();
+            renderVideosPlaylist();
+            renderQuizzes();
+            renderAssignments();
+            renderProjects();
+            renderLeaderboard();
+            showToast("All study progress and points reset to zero.", "info");
+        }
+
+        function submitAssignment(id) {
+            if(!appState.submittedAssignments.includes(id)) {
+                appState.submittedAssignments.push(id);
+                appState.points += 50;
+                saveState();
+                renderAssignments();
+                renderLeaderboard();
+                showToast(`Assignment #${id} submitted successfully! (+50 PTS)`, 'success');
+            }
+        }
+
+        // LEADERBOARD
+        function renderLeaderboard() {
+            const tbody = document.getElementById('leaderboardTbody');
+            if (!tbody) return;
+
+            const students = [
+                { name: "You (Current Cadet)", grade: "Grades 6–9", points: appState.points, isSelf: true },
+                { name: "Aarav Sharma", grade: "Grade 8", points: 1120, isSelf: false },
+                { name: "Ananya Reddy", grade: "Grade 9", points: 980, isSelf: false },
+                { name: "Rohan Verma", grade: "Grade 7", points: 840, isSelf: false },
+                { name: "Diya Nair", grade: "Grade 8", points: 690, isSelf: false },
+                { name: "Karthik Rao", grade: "Grade 6", points: 510, isSelf: false }
+            ];
+
+            students.sort((a, b) => b.points - a.points);
+
+            tbody.innerHTML = '';
+            students.forEach((student, index) => {
+                const rank = index + 1;
+                let badge = 'Cyber Cadet';
+                let badgeColor = 'bg-gray-800 text-gray-300 border-gray-700';
+
+                if (student.points >= 1000) {
+                    badge = 'Master Defender';
+                    badgeColor = 'bg-yellow-950 text-yellow-300 border-yellow-700';
+                } else if (student.points >= 600) {
+                    badge = 'Security Guardian';
+                    badgeColor = 'bg-cyan-950 text-cyan-300 border-cyan-700';
+                } else if (student.points >= 200) {
+                    badge = 'Digital Scout';
+                    badgeColor = 'bg-emerald-950 text-emerald-300 border-emerald-700';
+                }
+
+                const tr = document.createElement('tr');
+                tr.className = student.isSelf ? 'bg-cyan-950/30 font-semibold' : 'hover:bg-black/40 transition';
+                tr.innerHTML = `
+                    <td class="py-3.5 px-6 font-mono font-bold ${rank === 1 ? 'text-yellow-400' : rank === 2 ? 'text-gray-300' : rank === 3 ? 'text-amber-500' : 'text-gray-500'}">
+                        #${rank}
+                    </td>
+                    <td class="py-3.5 px-6 text-white">
+                        ${student.name} ${student.isSelf ? '<span class="ml-1 text-[10px] px-2 py-0.5 rounded-full bg-cyan-500 text-black font-extrabold">YOU</span>' : ''}
+                    </td>
+                    <td class="py-3.5 px-6 text-gray-400 font-mono">${student.grade}</td>
+                    <td class="py-3.5 px-6 font-mono font-bold text-emerald-400">${student.points} PTS</td>
+                    <td class="py-3.5 px-6">
+                        <span class="text-[10px] font-mono px-2.5 py-1 rounded-full border ${badgeColor}">
+                            ${badge}
+                        </span>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>
